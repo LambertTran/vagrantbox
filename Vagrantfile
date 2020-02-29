@@ -22,4 +22,20 @@ Vagrant.configure("2") do |config|
     box3.vm.provision "shell", path: "docker.sh"
     box3.vm.network :public_network, ip: "10.0.0.202", bridge: "en1: Wi-Fi (AirPort)"
   end
+
+  config.vm.define "kube-loadbalancer" do |box4|
+    box4.vm.box = "hashicorp/bionic64"
+    box4.vm.hostname = 'dns'
+    box4.vm.provision "shell", path: "common-pkg.sh"
+    box4.vm.provision "shell", path: "docker.sh"
+    box4.vm.network :public_network, ip: "10.0.0.203", bridge: "en1: Wi-Fi (AirPort)"
+  end
+
+  config.vm.define "worker1" do |box5|
+    box5.vm.box = "hashicorp/bionic64"
+    box5.vm.hostname = 'dns'
+    box5.vm.provision "shell", path: "common-pkg.sh"
+    box5.vm.provision "shell", path: "docker.sh"
+    box5.vm.network :public_network, ip: "10.0.0.204", bridge: "en1: Wi-Fi (AirPort)"
+  end
 end
