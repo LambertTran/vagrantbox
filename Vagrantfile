@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
 
   config.vm.define "dev-ops1" do |box|
-    box.vm.box = "hashicorp/bionic64"
+    box.vm.box = "base-ubuntu1804"
     box.vm.hostname = 'controller1'
     box.vm.provision "shell", path: "common-pkg.sh"
     box.vm.provision "shell", path: "docker.sh"
