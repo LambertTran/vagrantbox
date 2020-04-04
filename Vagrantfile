@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "dev-ops1" do |box|
     box.vm.box = "base-ubuntu1804"
-    box.vm.hostname = 'controller1'
+    box.vm.hostname = 'dev-ops1'
     box.vm.provision "shell", path: "common-pkg.sh"
     box.vm.provision "shell", path: "docker.sh"
     box.vm.provision "shell", path: "kube.sh"
