@@ -3,9 +3,6 @@ Vagrant.configure("2") do |config|
   config.vm.define "dev-ops1" do |box|
     box.vm.box = "base-ubuntu1804"
     box.vm.hostname = 'dev-ops1'
-    box.vm.provision "shell", path: "common-pkg.sh"
-    box.vm.provision "shell", path: "docker.sh"
-    box.vm.provision "shell", path: "kube.sh"
     box.vm.network :public_network, ip: "10.0.0.10", bridge: "en1: Wi-Fi (AirPort)"
     box.vm.provider "virtualbox" do |vb|
         vb.gui = false
